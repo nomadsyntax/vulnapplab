@@ -1,0 +1,119 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      # Web Applications
+      - dvwa
+      - mutillidae
+      - bwapp
+      - webgoat
+      - juice-shop
+      - vulnerable-wordpress
+      - altoro-mutual
+      - hackazon
+      - xvwa
+      - security-shepherd
+      - dvsi
+      # APIs
+      - vulnerable-graphql-api
+      - crapi
+      # Databases
+      - vulnerable-postgres
+      # OS & Containers
+      - metasploitable2
+
+  # === Vulnerable Web Applications ===
+
+  dvwa:
+    image: vulnerables/web-dvwa
+    ports:
+      - "8081:80"
+
+  mutillidae:
+    image: citizenstig/nowasp
+    ports:
+      - "8082:80"
+
+  bwapp:
+    image: raesene/bwapp
+    ports:
+      - "8083:80"
+
+  webgoat:
+    image: webgoat/webgoat-8.0
+    ports:
+      - "8084:8080"
+
+  juice-shop:
+    image: bkimminich/juice-shop
+    ports:
+      - "8085:3000"
+
+  vulnerable-wordpress:
+    image: wpscanteam/vulnerablewordpress
+    ports:
+      - "8086:80"
+
+  altoro-mutual:
+    image: hclcr.io/altoromutual/altoro-mutual
+    ports:
+      - "8087:8080"
+
+  hackazon:
+    image: rapid7/hackazon
+    ports:
+      - "8089:80"
+
+  xvwa:
+    image: tuxotron/xvwa
+    ports:
+      - "8090:80"
+
+  security-shepherd:
+    image: ismisepaul/securityshepherd
+    ports:
+      - "8091:80"
+
+  dvsi:
+    image: digininja/dvsi
+    ports:
+      - "8093:80"
+
+  # === Vulnerable APIs ===
+
+  vulnerable-graphql-api:
+    image: carvesystems/vulnerable-graphql-api
+    ports:
+      - "8094:5013"
+
+  crapi:
+    image: owasp/crapi
+    ports:
+      - "8092:8888"
+
+  # === Vulnerable Databases ===
+
+  vulnerable-postgres:
+    image: postgres:9.3
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+
+  # === Vulnerable OS & Containers ===
+
+  metasploitable2:
+    image: tleemcjr/metasploitable2
+    ports:
+      - "8095:80"
+
+networks:
+  default:
+    driver: bridge
