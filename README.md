@@ -30,7 +30,7 @@ Metasploitable2
 🚀 Quick Start Guide
 
 Requirements:
-Docker and Docker Compose installed
+Docker, Docker Compose, Nginx installed
 
 Deployment:
 git clone https://github.com/your-username/vulnerable-apps-lab.git
