@@ -96,3 +96,20 @@ docker-compose up -d --build
 Stop the containers:
 
 docker-compose down
+
+📌 Important Notes
+
+These applications contain intentionally vulnerable code. DO NOT EXPOSE THIS ENVIRONMENT TO THE INTERNET!
+Intended strictly for educational, research, and testing purposes only.
+
+⚠️ Disclaimer
+
+Use responsibly. The author is not responsible for any misuse or unauthorized activities.
+
+📘 Resources & Further Reading
+
+OWASP Official Website
+
+OWASP Juice Shop Docs
+
+Metasploitable2 Documentation
