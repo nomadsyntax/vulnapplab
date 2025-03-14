@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   nginx:
     image: nginx:latest
@@ -14,15 +12,14 @@ services:
       - bwapp
       - webgoat
       - juice-shop
-      - vulnerable-wordpress
-      - altoro-mutual
-      - hackazon
-      - xvwa
+     #- vulnerable-wordpress
+     #- altoro-mutual
+     #- xvwa
       - security-shepherd
-      - dvsi
+     # - dvsi
       # APIs
       - vulnerable-graphql-api
-      - crapi
+    # - crapi
       # Databases
       - vulnerable-postgres
       # OS & Containers
@@ -55,35 +52,30 @@ services:
     ports:
       - "8085:3000"
 
-  vulnerable-wordpress:
-    image: wpscanteam/vulnerablewordpress
-    ports:
-      - "8086:80"
+ # vulnerable-wordpress:
+ #   image: wpscanteam/vulnerablewordpress
+ #   ports:
+ #     - "8086:80"
 
-  altoro-mutual:
-    image: hclcr.io/altoromutual/altoro-mutual
-    ports:
-      - "8087:8080"
+ # altoro-mutual:
+ #   image: hclcr.io/altoromutual/altoro-mutual
+ #   ports:
+ #     - "8087:8080"
 
-  hackazon:
-    image: rapid7/hackazon
-    ports:
-      - "8089:80"
-
-  xvwa:
-    image: tuxotron/xvwa
-    ports:
-      - "8090:80"
+#  xvwa:
+#    image: tuxotron/xvwa
+#    ports:
+#      - "8090:80"
 
   security-shepherd:
     image: ismisepaul/securityshepherd
     ports:
       - "8091:80"
 
-  dvsi:
-    image: digininja/dvsi
-    ports:
-      - "8093:80"
+#  dvsi:
+#    image: digininja/dvsi
+#    ports:
+#      - "8093:80"
 
   # === Vulnerable APIs ===
 
@@ -92,10 +84,10 @@ services:
     ports:
       - "8094:5013"
 
-  crapi:
-    image: owasp/crapi
-    ports:
-      - "8092:8888"
+#  crapi:
+#    image: owasp/crapi
+#    ports:
+#      - "8092:8888"
 
   # === Vulnerable Databases ===
 
