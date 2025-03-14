@@ -56,8 +56,10 @@ crAPI	http://localhost/crapi
 Metasploitable2	http://localhost/metasploitable2
 
 Starting & Stopping containers:
+
+
 Start all containers:
-docker-compose up -d
+docker-compose up -d --build
 
 Stop the containers:
 docker-compose down
